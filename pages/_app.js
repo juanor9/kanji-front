@@ -1,10 +1,10 @@
 import { ApolloProvider } from '@apollo/client';
-import apolloClient from '../lib/apollo';  // Asegúrate de que la ruta a tu cliente Apollo es correcta
-import '../styles/globals.css';
+import client from '../app/lib/apollo';
+import '../app/globals.css'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ApolloProvider client={apolloClient}>
+    <ApolloProvider client={client}>
       <Component {...pageProps} />
     </ApolloProvider>
   );
