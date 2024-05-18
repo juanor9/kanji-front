@@ -1,0 +1,14 @@
+.top-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  &__name{
+    font-weight: 200;
+  }
+  &__link-list{
+    list-style: none;
+    display: flex;
+    gap: 2em;
+  }
+}
