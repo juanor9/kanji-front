@@ -1,8 +1,9 @@
+// app/lib/apollo.js
 import { ApolloClient, InMemoryCache, HttpLink, from } from '@apollo/client';
 import { onError } from '@apollo/client/link/error';
 
 const httpLink = new HttpLink({
-  uri: 'https://kanji-back-production.up.railway.app/', // Asegúrate de reemplazar esta URL por la de tu backend GraphQL
+  uri: 'https://kanji-back-production.up.railway.app/graphql', // Asegúrate de reemplazar esta URL por la de tu backend GraphQL
 });
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {

@@ -2,6 +2,7 @@
   "name": "kanji",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,7 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@apollo/client": "^3.10.2",
+    "@apollo/client": "^3.10.4",
     "graphql": "^16.8.1",
     "next": "14.2.3",
     "react": "^18",
