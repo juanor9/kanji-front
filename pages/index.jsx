@@ -22,7 +22,7 @@ export default function Home() {
       <ul>
         {data.getAllCharacters.map((character) => (
           <li key={character.id}>
-            {character.literal} - Grade: {character.misc.grade}, Strokes: {character.misc.stroke_count}
+            {character.literal}
           </li>
         ))}
       </ul>
