@@ -7,9 +7,11 @@ body {
   font-style: normal;
   font-size: 18px;
   font-weight: 200;
+  line-height: 1.2em;
 }
 [lang="ja"]{
   font-family: "Noto Sans JP", sans-serif;
+  font-size: 1.2em;
 }
 a {
   color: inherit;
@@ -17,4 +19,7 @@ a {
 }
 a:hover, a:focus {
   text-decoration: underline;
+}
+.okurigana{
+  color: rgb(200, 200, 200);
 }
