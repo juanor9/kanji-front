@@ -21,8 +21,8 @@ export const GET_CHARACTER_BY_ID = gql`
 `;
 
 export const GET_RANDOM_CHARACTER = gql`
-query GetRandomCharacter {
-  getRandomCharacter {
+query GetRandomCharacter($jlpt: Int) {
+  getRandomCharacter(jlpt: $jlpt) {
     literal
     readings {
       kunyomi
@@ -33,6 +33,7 @@ query GetRandomCharacter {
       language
       meaning
     }
+    jlpt
   }
 }
 `;

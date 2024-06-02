@@ -1,0 +1,13 @@
+@import "@/app/styles/queries.scss";
+
+.random-jlpt{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1em;
+  align-content: stretch;
+  @include respond-to('medium') {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
