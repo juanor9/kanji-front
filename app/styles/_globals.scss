@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Ubuntu+Sans:ital,wdth,wght@0,75..100,100..800;1,75..100,100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Ubuntu+Sans:ital,wdth,wght@0,75..100,100..800;1,75..100,100..800&display=swap');
+@import './queries.scss';
 
 body {
   font-family: "Noto Sans", sans-serif;
@@ -7,7 +8,7 @@ body {
   font-style: normal;
   font-size: 18px;
   font-weight: 200;
-  line-height: 1.2em;
+  //line-height: 1.2em;
 }
 [lang="ja"]{
   font-family: "Noto Sans JP", sans-serif;

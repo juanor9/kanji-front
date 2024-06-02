@@ -2,11 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap');
 @import "@/app/styles/queries.scss";
 
-.simple-card{
+.simplier-card{
   background-color: $grey-light;
   padding: .5em .6em;
   color: $grey-dark;
-  width: 100%;
   &--5{
     background-color: $yellow-light;
     color: $yellow-dark;
@@ -50,9 +49,6 @@
     &--1{
       border: solid 1px $blue-dark;
     }
-    @include respond-to('medium') {
-      flex-direction: row;
-    }
   }
   &__literal{
     text-align: center;
@@ -76,11 +72,6 @@
     }
     &--1{
       border-color: $blue-medium;
-    }
-    @include respond-to('medium') {
-      border-bottom: none;
-      border-right: solid 1px;
-      padding-right: .2em;
     }
   }
   &__h2{

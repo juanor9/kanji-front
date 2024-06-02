@@ -2,10 +2,14 @@ import React from 'react';
 import './KanjiSimpleCard.scss';
 import setOkurigana from '@/app/transformations/okurigana';
 
-const KanjiSimpleCard = ({ literal, readings, meanings }) => {
+const KanjiSimpleCard = ({ literal, readings, meanings, jlpt }) => {
   let meaningsEs = [];
   if (meanings && Array.isArray(meanings)) {
     meaningsEs = meanings.filter(meaning => meaning.language === "es");
+  }
+
+  if (jlpt === undefined){
+    jlpt='';
   }
 
   const onyomi = readings?.onyomi || [];
@@ -16,16 +20,22 @@ const KanjiSimpleCard = ({ literal, readings, meanings }) => {
   };
 
   return (
-    <article className="simple-card" role="region" aria-labelledby="kanji-title">
-      <div className='simple-card__container'>
+    <article
+    className={`simple-card simple-card--${jlpt}`}
+    role="region"
+    aria-labelledby="kanji-title">
+      <div className={`simple-card__container simple-card__container--${jlpt}`}>
       <div>
-        <p id="kanji-title" className="simple-card__literal">{literal}</p>
+        <p id="kanji-title" className={`simple-card__literal simple-card__literal--${jlpt}`}>{literal}</p>
       </div>
       <section className="simple-card__section" aria-labelledby="lecturas-title">
-        <h2 id="lecturas-title" className="simple-card__h2">Lecturas</h2>
+        <h2
+        id="lecturas-title"
+        className={`simple-card__h2 simple-card__h2--${jlpt}`}
+        >Lecturas</h2>
         {kunyomi.length > 0 && (
           <div>
-            <h3 className="simple-card__h3">Kunyomi</h3>
+            <h3 className={`simple-card__h3 simple-card__h3--${jlpt}`}>Kunyomi</h3>
             <ul className="simple-card__list">
               {kunyomi.map((reading, index) => (
                 <li key={index} lang="jp" dangerouslySetInnerHTML={createMarkup(setOkurigana(reading))}></li>
@@ -35,7 +45,7 @@ const KanjiSimpleCard = ({ literal, readings, meanings }) => {
         )}
         {onyomi.length > 0 && (
           <div>
-            <h3 className="simple-card__h3">Onyomi</h3>
+            <h3 className={`simple-card__h3 simple-card__h3--${jlpt}`}>Onyomi</h3>
             <ul className="simple-card__list">
               {onyomi.map((reading, index) => (
                 <li key={index} lang="jp">{reading}</li>
@@ -46,13 +56,10 @@ const KanjiSimpleCard = ({ literal, readings, meanings }) => {
       </section>
       {meaningsEs.length > 0 && (
         <section className="simple-card__section" aria-labelledby="significados-title">
-          <h2 id="significados-title" className="simple-card__h2">Significados</h2>
-          <dl>
+          <h2 id="significados-title" className={`simple-card__h2 simple-card__h2--${jlpt}`}>Significados</h2>
+          <dl className="simple-card__list">
             {meaningsEs.map((meaning, index) => (
-              <div key={index}>
-                <dt lang="es">Significado {index + 1}</dt>
-                <dd lang="es">{meaning.meaning}</dd>
-              </div>
+                <dd lang="es" key={index}>{meaning.meaning}</dd>
             ))}
           </dl>
         </section>
