@@ -37,3 +37,22 @@ query GetRandomCharacter($jlpt: Int) {
   }
 }
 `;
+
+export const GET_CHARACTER_BY_LITERAL = gql`
+query GetCharacterByLiteral($literal: String) {
+  getCharacterByLiteral(literal: $literal) {
+    literal
+    grade
+    jlpt
+    meanings {
+      language
+      meaning
+    }
+    readings {
+      kunyomi
+      nanori
+      onyomi
+    }
+  }
+}
+`;
