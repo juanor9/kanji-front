@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from "next/link";
 import './KanjiSimplierCard.scss';
 import setOkurigana from '@/app/transformations/okurigana';
 
@@ -12,12 +13,7 @@ const KanjiSimplierCard = ({ literal, readings, meanings, jlpt }) => {
     jlpt='';
   }
 
-  const onyomi = readings?.onyomi || [];
-  const kunyomi = readings?.kunyomi || [];
-
-  const createMarkup = (htmlString) => {
-    return { __html: htmlString };
-  };
+  const kanjiurl = `/kanji/${literal}`;
 
   return (
     <article
@@ -26,7 +22,17 @@ const KanjiSimplierCard = ({ literal, readings, meanings, jlpt }) => {
     aria-labelledby="kanji-title">
       <div className={`simplier-card__container simplier-card__container--${jlpt}`}>
       <div>
-        <p id="kanji-title" className={`simplier-card__literal simplier-card__literal--${jlpt}`}>{literal}</p>
+        <p
+        id="kanji-title"
+        className={`simplier-card__literal simplier-card__literal--${jlpt}`}
+        lang='ja'
+        >{literal}</p>
+        <Link
+            className={`simple-card__link simple-card__link--${jlpt}`}
+            href={kanjiurl}
+          >
+            Ir al kanji
+          </Link>
       </div>
       {meaningsEs.length > 0 && (
         <section className="simplier-card__section" aria-labelledby="significados-title">
