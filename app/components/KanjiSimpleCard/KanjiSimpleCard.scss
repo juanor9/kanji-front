@@ -83,6 +83,19 @@
       padding-right: .2em;
     }
   }
+  &__link{
+    display: block;
+    margin: 1em;
+    text-align: center;
+    background-color: $grey-light;
+    padding: .5em;
+    color: $grey-dark;
+    text-decoration: none;
+    &:hover{
+      background-color: $grey-medium;
+      color: $white;
+    }
+  }
   &__h2{
     width: 100%;
     margin: .5em 0;
