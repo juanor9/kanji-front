@@ -39,19 +39,32 @@ query GetRandomCharacter($jlpt: Int) {
 `;
 
 export const GET_CHARACTER_BY_LITERAL = gql`
-query GetCharacterByLiteral($literal: String) {
+query Query($literal: String) {
   getCharacterByLiteral(literal: $literal) {
     literal
-    grade
     jlpt
-    meanings {
-      language
-      meaning
+    grade
+    strokes
+    queryCodes {
+      qCode
+      queryType
+    }
+    radicals {
+      code
+      radType
     }
     readings {
       kunyomi
       nanori
       onyomi
+    }
+    meanings {
+      language
+      meaning
+    }
+    dictionaries {
+      code
+      dictionaryName
     }
   }
 }

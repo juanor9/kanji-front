@@ -17,6 +17,9 @@ const TopHeader = () => {
           <li>
             <Link href="/radicals">Radicales</Link>
           </li>
+          <li>
+            <Link href="/radicals">Grado escolar</Link>
+          </li>
         </ul>
       </nav>
       </header>
