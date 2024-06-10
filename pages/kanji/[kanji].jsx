@@ -4,6 +4,7 @@ import { GET_CHARACTER_BY_LITERAL } from "@/app/graphql/characters";
 import Head from "next/head";
 import TopHeader from "@/app/components/TopHeader/TopHeader";
 import WordsTable from "@/app/components/WordsTable/WordsTable";
+import RadicalDisplay from "@/app/components/RadicalDisplay/RadicalDisplay";
 
 const KanjiPage = () => {
   const { kanji } = useRouter().query;
@@ -15,8 +16,8 @@ const KanjiPage = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  console.log('data: ', data);
-  const { meanings, jlpt, grade, readings, strokes } = data?.getCharacterByLiteral;
+
+  const { meanings, jlpt, grade, readings, strokes, radicals } = data?.getCharacterByLiteral;
 
   let meaningsEs = [];
   if (meanings && Array.isArray(meanings)) {
@@ -36,6 +37,9 @@ const KanjiPage = () => {
         <h1 lang="ja">{kanji}</h1>
         {jlpt || grade || strokes ? (
           <section>
+            {radicals ? (
+              <RadicalDisplay radicalData={radicals} />
+            ) : null}
             {jlpt ? (
               <p>
                 <b>Nivel de JLPT: </b> N{jlpt}{" "}
