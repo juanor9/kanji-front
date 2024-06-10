@@ -44,49 +44,52 @@ const KanjiSimpleCard = ({ literal, readings, meanings, jlpt }) => {
             Ir al kanji
           </Link>
         </div>
-        <section
-          className="simple-card__section"
-          aria-labelledby="lecturas-title"
-        >
-          <h2
-            id="lecturas-title"
-            className={`simple-card__h2 simple-card__h2--${jlpt}`}
+        {kunyomi.length > 0 || onyomi.length > 0 ? (
+          <section
+            className="simple-card__section"
+            aria-labelledby="lecturas-title"
           >
-            Lecturas
-          </h2>
-          {kunyomi.length > 0 && (
-            <div>
-              <h3 className={`simple-card__h3 simple-card__h3--${jlpt}`}>
-                Kunyomi
-              </h3>
-              <ul className="simple-card__list">
-                {kunyomi.map((reading, index) => (
-                  <li
-                    key={index}
-                    lang="ja"
-                    dangerouslySetInnerHTML={createMarkup(
-                      setOkurigana(reading)
-                    )}
-                  ></li>
-                ))}
-              </ul>
-            </div>
-          )}
-          {onyomi.length > 0 && (
-            <div>
-              <h3 className={`simple-card__h3 simple-card__h3--${jlpt}`}>
-                Onyomi
-              </h3>
-              <ul className="simple-card__list">
-                {onyomi.map((reading, index) => (
-                  <li key={index} lang="ja">
-                    {reading}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </section>
+            <h2
+              id="lecturas-title"
+              className={`simple-card__h2 simple-card__h2--${jlpt}`}
+            >
+              Lecturas
+            </h2>
+            {kunyomi.length > 0 && (
+              <div>
+                <h3 className={`simple-card__h3 simple-card__h3--${jlpt}`}>
+                  Kunyomi
+                </h3>
+                <ul className="simple-card__list">
+                  {kunyomi.map((reading, index) => (
+                    <li
+                      key={index}
+                      lang="ja"
+                      dangerouslySetInnerHTML={createMarkup(
+                        setOkurigana(reading)
+                      )}
+                    ></li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {onyomi.length > 0 && (
+              <div>
+                <h3 className={`simple-card__h3 simple-card__h3--${jlpt}`}>
+                  Onyomi
+                </h3>
+                <ul className="simple-card__list">
+                  {onyomi.map((reading, index) => (
+                    <li key={index} lang="ja">
+                      {reading}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </section>
+        ) : null}
+
         {meaningsEs.length > 0 && (
           <section
             className="simple-card__section"
